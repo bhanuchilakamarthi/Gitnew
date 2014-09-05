@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<beans:bean id="triangle" class="simpleSpringMaven.Tri5">
+		<beans:property name="pointA" ref="point1" />
+		<beans:property name="pointB" ref="point2" />
+		<beans:property name="pointc" ref="point3" />
+	</beans:bean>
+	<beans:bean id="point1" class="simpleSpringMaven.point">
+		<beans:property name="x" value="${pointA.x}" />
+		<beans:property name="y" value="${pointA.y}"/>
+	</beans:bean>
+	<beans:bean id="point2" class="simpleSpringMaven.point">
+		<beans:property name="x" value="-20" />
+		<beans:property name="y" value="0" />
+	</beans:bean>
+	<beans:bean id="point3" class="simpleSpringMaven.point">
+		<beans:property name="x" value="20" />
+		<beans:property name="y" value="0" />
+	</beans:bean>
+	<beans:alias name="triangle" alias="triangle-name" />
+	<beans:bean class="simpleSpringMaven.myBeanFactorypp" />
+	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<beans:property name="locations" value="pointsconfig.properties"/>
+	</beans:bean>
+</beans:beans>

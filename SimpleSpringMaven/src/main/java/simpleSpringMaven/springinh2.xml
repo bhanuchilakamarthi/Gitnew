@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="parenttriangle" class="simpleSpringMaven.Triangle3" >
+		<property name="points">
+		<list>
+		<ref bean="point1"/>
+		</list>
+		</property>
+	</bean>
+	<bean id="triangle1" class="simpleSpringMaven.Triangle3" parent="parenttriangle">
+	<property name="points">
+		<list merge="true">
+		<ref bean="point2"/>
+		</list>
+		</property>	
+	</bean>
+	<bean id="triangle2" class="simpleSpringMaven.Triangle3" parent="parenttriangle">
+		<property name="points" ref="point3" />
+	</bean>
+	<bean id="point1" class="simpleSpringMaven.point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="point2" class="simpleSpringMaven.point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="point3" class="simpleSpringMaven.point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+	<alias name="triangle" alias="triangle-name" />
+</beans>

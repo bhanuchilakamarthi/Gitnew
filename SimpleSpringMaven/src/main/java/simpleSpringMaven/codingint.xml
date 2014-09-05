@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- <bean id="triangle" class="simpleSpringMaven.Tri5"> <property name="pointA" 
+		ref="point1" /> <property name="pointB" ref="point2" /> <property name="pointc" 
+		ref="point3" /> </bean> -->
+	<bean id="center" class="simpleSpringMaven.point">
+
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="point2" class="simpleSpringMaven.point">
+		<qualifier value="circleRelated" />
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="point3" class="simpleSpringMaven.point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="C" class="simpleSpringMaven.Circle">
+
+
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">
+	</bean>
+	<context:annotation-config />
+</beans>
